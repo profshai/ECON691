@@ -15,12 +15,6 @@ dif = function(x) {
   return(df)
 }
 
-# Adding to data frame with the mutate function
-covidIL = covidIL %>%
-  mutate(df_test =  dif(Tests),
-         df_cases = dif(Cases),
-         df_deaths = dif(Deaths))
-
 # Delta function to calculate the percentage changes
 delta = function(x) {
   change = (x - lag(x))/lag(x)
@@ -46,7 +40,7 @@ covidIL$Date = as.Date(covidIL$Date, format="%m/%d/%Y")
 
 # Plotting the daily percentage change in new cases
 plot(covidIL$Date, covidIL$pc_cases,
-     main = "new COVID Cases",
+     main = "Percentage change in new COVID Cases",
      xlab = "Date",
      ylab = "COVID cases",
      type = "l",
@@ -55,7 +49,7 @@ plot(covidIL$Date, covidIL$pc_cases,
 
 # Plotting the daily percentage change in new tests
 plot(covidIL$Date, covidIL$pc_tests,
-     main = "new COVID tests",
+     main = "Percentage change in new COVID tests",
      xlab = "Date",
      ylab = "COVID tests",
      type = "l",
@@ -64,7 +58,7 @@ plot(covidIL$Date, covidIL$pc_tests,
 
 # Plotting the daily percentage change in new deaths
 plot(covidIL$Date, covidIL$pc_deaths,
-     main = "new COVID deaths",
+     main = "Percentage change in new COVID deaths",
      xlab = "Date",
      ylab = "COVID deaths",
      type = "l",
