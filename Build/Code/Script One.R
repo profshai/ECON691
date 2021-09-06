@@ -11,17 +11,29 @@ library(tidyverse)
 
 #Function####
 
-delta = function(x) {
-  temp = (x-lag(x)/lag(x))
-  return(temp)
+# Difference between old and new called diff
+diff = function(x) {
+  df = (x-lag(x))
+  return(df)
 }
 
+# Percentage change in diff
+delta = function(x) {
+  temp = (x-lag(x))/lag(x)
+  return(temp)
+}
+  
 covidIL = read.csv("./Data/ILCovid19.csv")
 
 covidIL = covidIL %>%
-  mutate(pc_test =  delta(Tests),
-         pc_cases = delta(Cases),
-         pc_deaths = delta(Deaths))
+  mutate(df_test =  diff(Tests),
+         df_cases = diff(Cases),
+         df_deaths = diff(Deaths))
+
+covidIL = covidIL %>%
+  mutate(pc_test =  delta(df_test),
+         pc_cases = delta(df_cases),
+         pc_deaths = delta(df_deaths))
 
 #Alternatively:
 #covidIL$pc_test = delta(covidIL$Tests)
