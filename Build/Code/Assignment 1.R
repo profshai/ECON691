@@ -29,7 +29,7 @@ delta = function(x) {
 
 # Daily new tests, new cases, and new deaths
 covidIL = covidIL %>%
-  mutate(df_test =  dif(Tests),
+  mutate(df_tests =  dif(Tests),
          df_cases = dif(Cases),
          df_deaths = dif(Deaths))
 
@@ -37,7 +37,7 @@ covidIL = covidIL %>%
 # Daily Percentage Change in New Cases, Daily Percentage Change in
 # Tests, Daily Percentage Change in Deaths
 covidIL = covidIL %>%
-  mutate(pc_test =  delta(df_tests),
+  mutate(pc_tests =  delta(df_tests),
          pc_cases = delta(df_cases),
          pc_deaths = delta(df_deaths))
 
