@@ -1,1 +1,1 @@
-This is a repository for my ECON 691 Class. I connected R to this Git repository such that my class projects can be pushed here. The course is graded based on what I push to this repository.
+This is a repository for my ECON 691 Class. I connected R to this Git repository such that my class projects can be pushed here.
